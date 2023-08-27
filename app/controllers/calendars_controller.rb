@@ -15,7 +15,8 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-    params.require(:calendars).permit(:date, :plan)
+    # clandersのモデルではなくplanのモデルのdateとplanのパラメータを受け取るために許可する宣言なのでモデル名を変更
+    params.require(:plan).permit(:date, :plan)
   end
 
   def getWeek
