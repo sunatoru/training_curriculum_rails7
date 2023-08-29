@@ -10,7 +10,10 @@
     <% @week_days.each do |day| %>
       <div class='item'>
         <div class='date'>
-          <% day[:month] %>/<% day[:date] %>
+        <%# ここでは%= %と書くことでその処理は全て表示されるためその週の月と日が入り込んでくれます！ %>
+        <%# rubyのコードとして処理を行うが表示はしないときに%%のみで囲む %>
+          <%= day[:month] %>/<%= day[:date] %><%= day[:wday]%>
+          <%# (曜日)を表示するために<%= day[:wday]を追加 %>
         </div>
         <ul class='content'>
         <% if day[:plans].length != 0 %>
